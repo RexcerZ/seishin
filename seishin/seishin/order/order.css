@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+
+  padding: 10px 20px;
+
+  h1.header-title {
+    font-family: "Noto Sans", sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Fixed typo */
+    margin: 0;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 30px;
+  margin-right: 20px;
+  margin-left: 28px;
+  margin-top: 8px;
+}
+.menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  position: fixed; /* Fix the button to the screen */
+  top: 25px; /* Adjust the vertical position */
+  right: 40px; /* Position the plus button */
+  width: 25px; /* Adjust the size of the button */
+  height: 25px; /* Adjust the size of the button */
+  cursor: pointer;
+  z-index: 900; /* Lower z-index so it stays behind the container */
+  object-fit: contain; /* Ensure the image fits within the defined width and height */
+  transition: opacity 0.3s ease, right 0.3s ease; /* Smooth fade-in and slide-in */
+}
+
+.menu-icon.hidden {
+  opacity: 0; /* Hide the plus button */
+}
+
+.slide-menu {
+  position: fixed;
+  top: 0;
+  right: -450px; /* Fully hidden off-screen */
+  width: 400px; /* Width of the menu */
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  transition: right 0.3s ease; /* Smooth slide-in animation */
+  z-index: 1000; /* Higher z-index so it stays above the plus button */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+}
+
+.slide-menu.open {
+  right: 0; /* Slide the menu into view */
+}
+
+.close-icon {
+  position: relative; /* Keep it within the flow of the container */
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-bottom: 20px; /* Add space below the minus icon */
+}
+
+.slide-menu a {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 100;
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.slide-menu a:hover {
+  background-color: #ddd;
+  transition: ease-in-out 0.2s;
+  color: red;
+}
+/* Line separator */
+.menu-separator {
+  border: none; /* Remove default styling */
+  border-top: 2px solid #00000028; /* Set thickness and color (e.g., black) */
+  width: 100%; /* Adjust the length of the line */
+  margin: 25px 0; /* Add spacing above and below */
+}
+
+/* Dropdown container */
+.dropdown-container {
+  display: flex;
+  justify-content: space-between; /* Align the title and button on opposite ends */
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  position: relative; /* Ensure the content is positioned relative to this container */
+}
+
+.dropdown-title {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+}
+
+.dropdown-icon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Dropdown content (always visible) */
+.dropdown-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  margin-top: 10px; /* Add space between the button and the content */
+  padding-left: 40px; /* Indent the content */
+  background-color: white; /* Optional: Add a background color */
+}
+
+.dropdown-content a {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px; /* Add padding for spacing */
+  display: block; /* Make the link take up the full width */
+  width: 100%; /* Ensure it spans the full width of the container */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  transition: ease-in-out 0.2s;
+  color: red;
+}
+
+/* Order page*/
+/* Grid container to align products in two columns */
+/* Flex container for the product items */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px; /* Space between items */
+  justify-content: center; /* Center items horizontally */
+  max-width: 1100px;  /* Limit overall width */
+  margin: 0 auto;  /* Center the flex container */
+  padding: 10px;
+ 
+  box-sizing: border-box;
+}
+
+/* Individual product container */
+.product {
+  background: #ffffff;
+  /* Calculate width to have two per row taking gap into account */
+  flex: 0 0 calc(50% - 10px);
+   max-width: calc(50% - 10px);
+  height: 700px;  /* You can adjust the height as needed */
+  
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+ margin-bottom: 10vh;
+}
+
+/* Image container: maintains a fixed aspect ratio */
+.image-container {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;  /* Adjust to change the aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product title/description */
+.product p {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 300;
+
+  margin: 0;
+  font-size: 15px;
+  text-align: left;
+  color: #333;
+}
+
+/* Dots container */
+.dots {
+  display: flex;
+  margin: 0;
+  gap: 5px;
+  justify-content: flex-start;
+}
+
+/* Individual dot style */
+.dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+/* Price styling */
+.price {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Cart button at top right of the product */
+.cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;  /* Adjust spacing as needed */
+}
+.cart-button img {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Optional UP button styling */
+.up-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  cursor: pointer;
+  width: 50px;             /* Adjust size as needed */
+  height: auto;
+  opacity: 0;              /* Invisible initially */
+  transform: translateY(50px);  /* Positioned off-screen */
+  transition: opacity 0.4s ease, transform 0.4s ease;  /* Smooth transition */
+}
+
+.up-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.global-notification {
+  position: fixed;
+  top: -100px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745; /* Green background */
+  color: white;
+  padding: 15px 30px;
+
+  font-size: 18px;
+  z-index: 9999;
+  transition: top 0.4s ease; /* Smooth sliding */
+  font-family: "Noto Sans", sans-serif;
+}

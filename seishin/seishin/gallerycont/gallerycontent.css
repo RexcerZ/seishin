@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    
+    padding: 20px 20px;
+
+    h1.header-title {
+        font-family: 'Noto Sans', sans-serif;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 5px; /* Fixed typo */
+        margin: 0;
+        
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 30px;
+    margin-right: 20px;
+    margin-left: 28px;
+    margin-top: 0;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-icon {
+    position: fixed; /* Fix the button to the screen */
+    top: 25px; /* Adjust the vertical position */
+    right: 40px; /* Position the plus button */
+    width: 25px; /* Adjust the size of the button */
+    height: 25px; /* Adjust the size of the button */
+    cursor: pointer;
+    z-index: 900; /* Ensure it stays above other content */
+    object-fit: contain; /* Ensure the image fits within the defined width and height */
+}
+
+.menu-icon.hidden {
+    opacity: 0; /* Hide the plus button */
+}
+.back-button {
+    position: fixed; /* Fix the button to the screen */
+    top: 80px; /* Position it below the plus button */
+    right: 40px; /* Align with the plus button */
+    width: 25px; /* Match the size of the plus button */
+    height: 25px; /* Match the size of the plus button */
+    z-index: 900; /* Ensure it stays above other content */
+}
+.back-button img {
+    width: 100%; /* Make the image fill the button */
+    height: 100%; /* Make the image fill the button */
+    object-fit: contain; /* Ensure the image fits within the defined width and height */
+    cursor: pointer; /* Make it look clickable */
+    
+}
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -450px; /* Fully hidden off-screen */
+    width: 400px; /* Width of the menu */
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: right 0.3s ease; /* Smooth slide-in animation */
+    z-index: 1000; /* Higher z-index so it stays above the plus button */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.slide-menu.open {
+    right: 0; /* Slide the menu into view */
+}
+
+.close-icon {
+    position: relative; /* Keep it within the flow of the container */
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add space below the minus icon */
+}
+
+.slide-menu a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.slide-menu a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+    color: red;
+}
+/* Line separator */
+.menu-separator {
+    border: none; /* Remove default styling */
+    border-top: 2px solid #00000028; /* Set thickness and color (e.g., black) */
+    width: 100%; /* Adjust the length of the line */
+    margin: 25px 0; /* Add spacing above and below */
+}
+
+
+/* Dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: space-between; /* Align the title and button on opposite ends */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    position: relative; /* Ensure the content is positioned relative to this container */
+}
+
+.dropdown-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+}
+
+.dropdown-icon {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Dropdown content (always visible) */
+.dropdown-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    margin-top: 10px; /* Add space between the button and the content */
+    padding-left: 40px; /* Indent the content */
+    background-color: white; /* Optional: Add a background color */
+}
+
+.dropdown-content a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for spacing */
+    display: block; /* Make the link take up the full width */
+    width: 100%; /* Ensure it spans the full width of the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+    color: red;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 3/4; /* or use fixed height if you prefer */
+    background: #f5f5f5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    position: relative; /* Ensure overlay text is positioned relative to this container */
+}
+  
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    justify-content: flex-start;
+}
+
+.gallery-overlay-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    font-size: 3rem;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2vh;
+    pointer-events: none; /* Prevent interaction with the text */
+    user-select: none; /* Prevent text selection */
+    z-index: 10; /* Ensure it appears above the images */
+    width: auto; /* Adjust width to fit content */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center; /* Optional: Center-align the text */
+}
+
+.gallery-container {
+    width: 80vw; /* 80% of the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+    position: relative; /* Ensure the overlay text is positioned correctly */
+  }
+.caption {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+    text-align: left; /* Center the caption text */
+}
+
+.gallery-hero {
+    margin-bottom: 40vh;
+    margin-top: 5vh;
+}
+
+/* Optional UP button styling */
+.up-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  cursor: pointer;
+  width: 50px;             /* Adjust size as needed */
+  height: auto;
+  opacity: 0;              /* Invisible initially */
+  transform: translateY(50px);  /* Positioned off-screen */
+  transition: opacity 0.4s ease, transform 0.4s ease;  /* Smooth transition */
+}
+
+.up-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

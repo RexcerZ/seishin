@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+header {
+    display: flex;
+    justify-content: flex-start; /* Align logo and title to the left */
+    align-items: center; /* Vertically align items */
+    position: fixed; /* Keep the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the page */
+    background-color: #ffffff;
+    padding: 20px 20px;
+    z-index: 1000; /* Ensure it stays above other content */
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    
+    height: 30px;
+    margin-right: 20px;
+    margin-left: 28px;
+    margin-top: 8px;
+}
+h1.header-title {
+    font-family: 'Noto Sans', sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Fixed typo */
+    margin: 0;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+}
+.menu-container {
+    position: relative;
+}
+
+.menu-icon {
+    position: fixed; /* Fix the button to the screen */
+    top: 25px; /* Adjust the vertical position */
+    right: 40px; /* Position the plus button */
+    width: 25px; /* Adjust the size of the button */
+    height: 25px; /* Adjust the size of the button */
+    cursor: pointer;
+    z-index: 900; /* Lower z-index so it stays behind the container */
+    object-fit: contain; /* Ensure the image fits within the defined width and height */
+    transition: opacity 0.3s ease, right 0.3s ease; /* Smooth fade-in and slide-in */
+}
+
+.menu-icon.hidden {
+    opacity: 0; /* Hide the plus button */
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -450px; /* Fully hidden off-screen */
+    width: 400px; /* Width of the menu */
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: right 0.3s ease; /* Smooth slide-in animation */
+    z-index: 1000; /* Higher z-index so it stays above the plus button */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.slide-menu.open {
+    right: 0; /* Slide the menu into view */
+}
+
+.close-icon {
+    position: relative; /* Keep it within the flow of the container */
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add space below the minus icon */
+}
+
+.slide-menu a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.slide-menu a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+    color: red;
+}
+/* Line separator */
+.menu-separator {
+    border: none; /* Remove default styling */
+    border-top: 2px solid #00000028; /* Set thickness and color (e.g., black) */
+    width: 100%; /* Adjust the length of the line */
+    margin: 25px 0; /* Add spacing above and below */
+}
+
+
+/* Dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: space-between; /* Align the title and button on opposite ends */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    position: relative; /* Ensure the content is positioned relative to this container */
+}
+
+.dropdown-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+}
+
+.dropdown-icon {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Dropdown content (always visible) */
+.dropdown-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    margin-top: 10px; /* Add space between the button and the content */
+    padding-left: 40px; /* Indent the content */
+    background-color: white; /* Optional: Add a background color */
+}
+
+.dropdown-content a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for spacing */
+    display: block; /* Make the link take up the full width */
+    width: 100%; /* Ensure it spans the full width of the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+}
+
+
+
+
+
+/* Scrollable container */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent body scrolling */
+    background-color: #FFFFFF; /* Background color */
+}
+.scrollable-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 30px; /* Add space between boxes */
+    width: 69%;
+    max-width: 100%; /* Limit the maximum width */
+    height: calc(100vh - 0vh); /* Full viewport height minus the header height */
+    margin: 0 auto;
+    overflow-y: scroll; /* Allow vertical scrolling if content overflows */
+    perspective: 1000px; /* Add perspective for 3D effect */
+    background-color: #fff;
+    position: relative; /* Ensure child elements are positioned relative to this container */
+}
+.box:first-child {
+    margin-top: 10%; /* Adjust the starting position */
+}
+.box:last-child {
+    margin-bottom: 10%; /* Adjust the bottom margin of the last box */
+}
+.scrollable-container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+     height: calc(100vh - 10%);
+}
+
+.scrollable-container::-webkit-scrollbar {
+     position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll; /* Allow vertical scrolling */
+    height: calc(100vh - 10%); /* Adjust height to account for the header/footer */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    flex: none;;
+    overflow: hidden;
+    background-color: rgb(87, 87, 87);
+    width: 90vh; /* Make the box take the full width of the container */
+    height: 35vh; /* Set a fixed height for the boxes */
+    transform-origin: center; /* Set the rotation origin to the center */
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Use relative positioning to keep boxes in the flow */
+    margin: 0; /* Remove any margins */
+    padding: 0; /* Remove any paddings */
+}
+/*myro pogi*/
+.box:hover {
+    transform: translateY(-5px);
+    
+}
+
+/* Image inside the box */
+.box img {
+    width: 100%;
+    height: 100%; /* Adjust the height of the image relative to the box */
+    object-fit: cover; alt: b;/* Ensure the image covers the area */
+   position: relative;
+    filter: brightness(75%);
+}
+.box:hover img {
+    filter: brightness(100%); /* Restore full brightness on hover */
+    transition: ease-in 0.3s;
+}
+
+
+/* Content inside the box */
+.box-content {
+    position: absolute;
+    bottom: 0px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    margin-left: 1vh;
+    bottom: 5%;
+    color: white;
+    
+}
+
+.box-content h3 {
+    font-size: 18px;
+    
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:  500;
+    margin-bottom: 0px;
+    
+}
+
+.box-content p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+/*NAVIGATION DOTSSS FAAUCUCKKKK AMPOGI MO MYRO*/
+@media (max-width: 768px) {
+    .box {
+        width: 100%; /* Full width on smaller screens */
+        height: 40vh; /* Adjust height for smaller screens */
+    }
+
+    .dot-navigation {
+        right: 10px; /* Adjust position of dots */
+    }
+}
+
+.dot-navigation {
+  position: fixed; /* Fix it to the viewport */
+    right: 50vh; /* Align to the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column; /* Stack dots vertically */
+    gap: 10px; /* Space between dots */
+    align-items: center; /* Center dots horizontally */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #767b7c; /* Default color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 17px; /* Larger size for the active dot */
+    height: 17px;
+    background-color: #363B3C; /* Highlight color */
+}
+
+
+.bottom-header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Noto Sans', sans-serif;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Optional UP button styling */
+.up-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  cursor: pointer;
+  width: 50px;             /* Adjust size as needed */
+  height: auto;
+  opacity: 0;              /* Invisible initially */
+  transform: translateY(50px);  /* Positioned off-screen */
+  transition: opacity 0.4s ease, transform 0.4s ease;  /* Smooth transition */
+}
+
+.up-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+ 

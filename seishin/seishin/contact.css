@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    
+    padding: 10px 20px;
+margin-bottom: 8px;
+   
+h1.header-title {
+        font-family: 'Noto Sans', sans-serif;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 5px; /* Fixed typo */
+        margin: 0;
+        margin-top: 5px;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+
+}
+.logo {
+    display: flex;
+    
+    align-items: center;
+}
+.logo img {
+    height: 30px;
+    margin-right: 20px;
+    margin-left: 28px;
+    margin-top: 5px;
+    margin-bottom: 10;
+}
+.menu-container {
+    position: relative;
+}
+
+.menu-icon {
+    position: fixed; /* Fix the button to the screen */
+    top: 20px; /* Adjust the vertical position */
+    right: 40px; /* Position the plus button */
+    width: 25px; /* Adjust the size of the button */
+    height: 25px; /* Adjust the size of the button */
+    cursor: pointer;
+    z-index: 900; /* Lower z-index so it stays behind the container */
+    object-fit: contain; /* Ensure the image fits within the defined width and height */
+    transition: opacity 0.3s ease, right 0.3s ease; /* Smooth fade-in and slide-in */
+}
+
+.menu-iconz.hidden {
+    opacity: 0; /* Hide the plus button */
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -450px; /* Fully hidden off-screen */
+    width: 400px; /* Width of the menu */
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: right 0.3s ease; /* Smooth slide-in animation */
+    z-index: 1000; /* Higher z-index so it stays above the plus button */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.slide-menu.open {
+    right: 0; /* Slide the menu into view */
+}
+
+.close-icon {
+    position: relative; /* Keep it within the flow of the container */
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add space below the minus icon */
+}
+
+.slide-menu a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.slide-menu a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+    color: red;
+}
+/* Line separator */
+.menu-separator {
+    border: none; /* Remove default styling */
+    border-top: 2px solid #00000028; /* Set thickness and color (e.g., black) */
+    width: 100%; /* Adjust the length of the line */
+    margin: 25px 0; /* Add spacing above and below */
+}
+
+
+/* Dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: space-between; /* Align the title and button on opposite ends */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    position: relative; /* Ensure the content is positioned relative to this container */
+}
+
+.dropdown-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+}
+
+.dropdown-icon {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Dropdown content (always visible) */
+.dropdown-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    margin-top: 10px; /* Add space between the button and the content */
+    padding-left: 40px; /* Indent the content */
+    background-color: white; /* Optional: Add a background color */
+}
+
+.dropdown-content a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for spacing */
+    display: block; /* Make the link take up the full width */
+    width: 100%; /* Ensure it spans the full width of the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    transition:ease-in-out 0.2s;
+    color: red;
+}
+.image-slots {
+    position: relative; /* Set the images as the reference point for absolute positioning */
+    display: flex; /* Align images horizontally */
+    flex-wrap: wrap; /* Allow images to wrap to the next row if needed */
+    width: 100%; /* Full width of the page */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+.image-slots img {
+    flex: 1 1 25%; /* Each image takes up 25% of the width */
+    height: 75vh; /* 3/4 of the viewport height */
+    object-fit: cover; /* Ensure the image covers its container */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+.info-boxes {
+    position: absolute; /* Position the boxes on top of the images */
+    top: 50%; /* Center vertically relative to the images */
+    left: 50%; /* Center horizontally relative to the viewport */
+    transform: translate(-50%, -20%); /* Adjust for perfect centering */
+    display: flex; /* Align the boxes horizontally */
+    justify-content: center; /* Center the boxes horizontally */
+    align-items: center; /* Center the content vertically */
+    gap: 20px; /* Add space between the boxes */
+    width: 70%; /* Limit the width of the container */
+    z-index: 10; /* Ensure the boxes appear above the images */
+    max-width: 70%;
+}
+
+
+
+.info-box {
+    flex: 1; /* Make both boxes equal in size */
+    min-width: 300px; /* Ensure a minimum width for smaller screens */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    border: 1px solid #ddd; /* Add a light border */
+    
+    padding: 20px; /* Add padding inside the boxes */
+    
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center; /* Center the text inside the boxes */
+    height: 200px;
+}
+
+.follow-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    gap: 30px;
+}
+
+.follow-details p {
+    flex: 0 0 calc(50% - 30px); /* Two per row (available width minus gap) */
+    margin: 0;
+}
+
+.info-box h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333; /* Darker text for the headings */
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #555; /* Slightly lighter text for the details */
+    margin: 10px 0;
+    display: flex;
+    justify-content: center; /* Center text inside the box */
+    align-items: center; /* Align icons and text */
+    gap: 10px; /* Add space between icons and text */
+}
+
+.info-box img {
+    width: 30px; /* Icon size */
+    height: 30px;
+    object-fit: contain; /* Ensure the icons fit properly */
+    
+}
+
+.contact-button {
+    background-color: black; /* Black button background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding inside the button */
+    font-size: 14px;
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 15px; /* Add spacing above the button */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+}
+.bottomheader p {
+    text-align: center;
+    margin-bottom: 0;
+    position: absolute;
+    font-family:'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    translate: 0% -50%;
+    color: white;
+}
+.bottomheader {
+    background-color: #3a3a3a;
+    margin: 0;
+    padding: 8.2vh;
+}
